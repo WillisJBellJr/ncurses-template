@@ -4,10 +4,10 @@
 #include <curses.h>
 
 int main(void) {
-        int nlines;
-        int ncols;
-        int key;
-        nlines = ncols = key = 0;
+	int nlines;
+    int ncols;
+	int key;
+    nlines = ncols = key = 0;
 
 	initscr();
 	noecho();
@@ -36,10 +36,12 @@ int main(void) {
 			werase(win);
 			box(win, 0, 0);
 			mvwaddstr(win, 0, 2, "box");
-			wrefresh(win); }
+			wrefresh(win); 
+		}
 		else {
 			waddch(win, key);
-			wrefresh(win); }
+			wrefresh(win); 
+		}
 	}
 	curs_set(1);
 	delwin(win);
