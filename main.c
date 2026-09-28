@@ -4,10 +4,9 @@
 #include <curses.h>
 
 int main(void) {
-	int nlines;
-    int ncols;
-	int key;
-    nlines = ncols = key = 0;
+	int nlines = 0;
+    int ncols = 0;
+	int key = 0;
 
 	initscr();
 	noecho();
@@ -27,11 +26,10 @@ int main(void) {
 	while((key = wgetch(win)) != 27) {
 		wmove(win, 2, 2);
 		if(key == KEY_RESIZE) {
-			resize_term(0, 0);
+			resize_term(LINES, COLS);
 			clear();
 			refresh();
 			getmaxyx(stdscr, nlines, ncols);
-
 			wresize(win, nlines, ncols);
 			werase(win);
 			box(win, 0, 0);
@@ -46,5 +44,5 @@ int main(void) {
 	curs_set(1);
 	delwin(win);
 	endwin();
-	return EXIT_SUCCESS;
+	return EXIT_SUCCES;
 }
